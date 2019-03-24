@@ -21,6 +21,8 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+my-release-key.keystore
+android/gradle.properties
 
 # Android/IntelliJ
 #
