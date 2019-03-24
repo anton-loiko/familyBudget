@@ -6,15 +6,16 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 
 import FooterBar from './components/FooterBar'
-import AllMonths from './screens/AllMonths'
+import AllMonthsScreen from './screens/AllMonths'
+import AppContainer from './screens/AppContainer'
 
 export default () => {
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-        <AllMonths />
+        {/* <AllMonthsScreen  /> */}
+        <AppContainer />
       </View>
-
       <View style={styles.footer}>
         <FooterBar />
       </View>
@@ -32,6 +33,9 @@ const styles = StyleSheet.create({
   },
   footer: {
     height: '10%',
+    borderStyle: 'solid',
+    borderColor: 'rgba(180, 180, 180, .5)',
+    borderTopWidth: 0.4,
   },
   main: {
     height: '90%',

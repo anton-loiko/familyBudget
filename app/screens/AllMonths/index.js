@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, ScrollView, View, Image } from 'react-native'
+import ScreenHeader from '../../components/ScreenHeader'
+import { styles } from './style'
 
 export default () => (
   <View>
-    <Text style={{ fontSize: 24, textAlign: 'center', color: '#262626' }}>
-      All Months
-    </Text>
+    <ScreenHeader title="All Months" />
     <ScrollView>
       <Text style={{ fontSize: 96 }}>Scroll me plz</Text>
       <Image

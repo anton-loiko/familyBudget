@@ -1,10 +1,9 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+import ScreenHeader from '../../components/ScreenHeader'
 
 export default () => (
   <View>
-    <Text style={{ fontSize: 24, textAlign: 'center', color: '#262626' }}>
-      Last Months
-    </Text>
+    <ScreenHeader title=" Last Months" />
   </View>
 )
