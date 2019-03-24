@@ -10,12 +10,31 @@ import LastMonthsScreen from './screens/LastMonths'
 import PrevWeekScreen from './screens/PrevWeek'
 import AllMonthsScreen from './screens/AllMonths'
 
+const baseNavOptions = title => ({
+  navigationOptions: () => ({
+    title,
+  }),
+})
+
 const RootStack = createStackNavigator(
   {
-    Home: CurrentWeekScreen,
-    AllMonths: AllMonthsScreen,
-    LastMonths: LastMonthsScreen,
-    PrevWeek: PrevWeekScreen,
+    Home: {
+      screen: CurrentWeekScreen,
+      ...baseNavOptions('Current Week'),
+    },
+
+    AllMonths: {
+      screen: AllMonthsScreen,
+      ...baseNavOptions('All Months'),
+    },
+    LastMonths: {
+      screen: LastMonthsScreen,
+      ...baseNavOptions('Last Months'),
+    },
+    PrevWeek: {
+      screen: PrevWeekScreen,
+      ...baseNavOptions('Prev Week'),
+    },
   },
   {
     initialRouteName: 'Home',

@@ -12,12 +12,15 @@ import { styles } from './style'
 const addButtonFirstHandle = () => Alert.alert('FirstHandle')
 const addButtonSecondHandle = () => Alert.alert('SecondHandle')
 
-export default ({
-  allMonthsHandle,
-  lastMonthsHandle,
-  prevWeekHandle,
-  currentWeekHandle,
-}) => {
+export default ({ navigation }) => {
+  console.log('====================================')
+  console.log(navigation)
+  console.log('====================================')
+
+  const allMonthsHandle = () => navigation.navigate('AllMonths')
+  const lastMonthsHandle = () => navigation.navigate('LastMonths')
+  const prevWeekHandle = () => navigation.navigate('PrevWeek')
+  const currentWeekHandle = () => navigation.navigate('Home')
   return (
     <View style={styles.wrap}>
       <View style={styles.wrapIcons}>

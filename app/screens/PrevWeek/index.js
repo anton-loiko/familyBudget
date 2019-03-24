@@ -1,10 +1,4 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import MainContainer from '../../containers/MainContainer'
 
-import ScreenHeader from '../../components/ScreenHeader'
-
-export default () => (
-  <View>
-    <ScreenHeader title="Last Week" />
-  </View>
-)
+export default props => <MainContainer {...props} />
