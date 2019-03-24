@@ -1,9 +1,14 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import MainContainer from '../../containers/MainContainer'
 import ScreenHeader from '../../components/ScreenHeader'
 
-export default () => (
-  <View>
-    <ScreenHeader title="Current Week" />
-  </View>
-)
+export default ({ navigation }) => {
+  return (
+    <MainContainer>
+      <ScreenHeader
+        title="Current Week"
+        onClick={() => navigation.push('AllMonths')}
+      />
+    </MainContainer>
+  )
+}

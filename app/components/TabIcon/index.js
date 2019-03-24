@@ -1,13 +1,13 @@
 import React from 'react'
-import { View, Image, TouchableWithoutFeedback } from 'react-native'
+import { View, Image, TouchableOpacity } from 'react-native'
 import { styles } from './style'
 
-export default ({ icon, onClick }) => {
+export default ({ icon, onPress }) => {
   return (
     <View style={styles.icon}>
-      <TouchableWithoutFeedback onPress={onClick}>
+      <TouchableOpacity onPress={onPress}>
         <Image source={icon} />
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     </View>
   )
 }

@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react'
-import { Alert, TouchableWithoutFeedback, View, Animated } from 'react-native'
+import { TouchableWithoutFeedback, View, Animated } from 'react-native'
 import { styles, BTN_SIZE } from './style'
 
-export default () => {
+const toBottomValue = 8
+
+export default ({ onFirstPress, onSecondPress }) => {
   const [isOpen, setOpen] = useState(false)
 
-  let clickTimeout
+  let isDisable
+  let animateTimeout
+  let clickFirstTimeout
+  let clickSecondTimeout
+
+  const clearTimeouts = () => {
+    clearTimeout(animateTimeout)
+    clearTimeout(clickFirstTimeout)
+    clearTimeout(clickSecondTimeout)
+  }
 
   useEffect(() => {
-    return clearTimeout(clickTimeout)
+    return clearTimeouts()
   }, [])
 
   const top = new Animated.Value(-(BTN_SIZE / 2))
@@ -24,15 +35,17 @@ export default () => {
   }
 
   const startAnimation = () => {
+    isDisable = true
+
     if (isOpen) {
       const duration = 1200
-      top.setValue(10)
+      top.setValue(toBottomValue)
       Animated.timing(top, {
         toValue: -(BTN_SIZE * 1.5),
         friction: 0.8,
       }).start()
 
-      setTimeout(() => {
+      animateTimeout = setTimeout(() => {
         Animated.parallel([
           Animated.timing(top, {
             toValue: -(BTN_SIZE / 2),
@@ -50,7 +63,9 @@ export default () => {
         duration,
       }).start()
 
-      setTimeout(() => {
+      clickSecondTimeout = setTimeout(() => {
+        onSecondPress()
+        isDisable = false
         setOpen(false)
       }, 1000)
     }
@@ -58,13 +73,15 @@ export default () => {
     if (!isOpen) {
       const duration = 500
 
-      Animated.timing(top, { toValue: 10, friction: 0.8 }).start()
+      Animated.timing(top, { toValue: toBottomValue, friction: 0.8 }).start()
       Animated.timing(rotateValue, {
         toValue: 1,
         duration,
       }).start()
 
-      clickTimeout = setTimeout(() => {
+      clickFirstTimeout = setTimeout(() => {
+        onFirstPress()
+        isDisable = false
         setOpen(true)
       }, duration)
     }
@@ -72,6 +89,7 @@ export default () => {
 
   return (
     <TouchableWithoutFeedback
+      disabled={isDisable}
       onPress={startAnimation}
       accessibilityLabel="Add new note"
       style={{ position: 'absolute', width: BTN_SIZE, height: BTN_SIZE }}

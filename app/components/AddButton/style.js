@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-export const BTN_SIZE = 50
+export const BTN_SIZE = 44
 
 const button = {
   position: 'absolute',
