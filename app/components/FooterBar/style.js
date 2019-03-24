@@ -16,9 +16,9 @@ export const styles = StyleSheet.create({
     top: 0,
     left: '50%',
     transform: [{ translateX: -(BTN_SIZE / 2) }],
-    zIndex: 50,
     width: BTN_SIZE,
     height: BTN_SIZE,
+    zIndex: 102,
   },
   wrapIcons: {
     flex: 1,

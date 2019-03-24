@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { TouchableWithoutFeedback, View, Animated } from 'react-native'
+import { TouchableOpacity, View, Animated } from 'react-native'
 import { styles, BTN_SIZE } from './style'
 
 const toBottomValue = 8
@@ -108,7 +108,7 @@ export default ({ onFirstPress = funcDef, onSecondPress = funcDef }) => {
   }
 
   return (
-    <TouchableWithoutFeedback
+    <TouchableOpacity
       disabled={!!isDisable}
       onPress={startAnimation}
       accessibilityLabel="Add new note"
@@ -118,6 +118,6 @@ export default ({ onFirstPress = funcDef, onSecondPress = funcDef }) => {
         <View style={styles.btnX} />
         <View style={styles.btnY} />
       </Animated.View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   )
 }

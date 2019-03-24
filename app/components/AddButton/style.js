@@ -12,6 +12,7 @@ const button = {
   height: BTN_SIZE,
   justifyContent: 'center',
   alignItems: 'center',
+  zIndex: 104,
 }
 
 const btnXY = {

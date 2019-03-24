@@ -9,12 +9,16 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   footer: {
+    position: 'relative',
     height: '10%',
     borderStyle: 'solid',
     borderColor: 'rgba(180, 180, 180, .5)',
     borderTopWidth: 0.4,
+    zIndex: 101,
   },
   main: {
+    position: 'relative',
     height: '90%',
+    zIndex: 100,
   },
 })
